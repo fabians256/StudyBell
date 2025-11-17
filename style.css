@@ -1,0 +1,1033 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100%;
+    color: #2d3748;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.header {
+    background: #ffffff;
+    color: #1f2937;
+    padding: 15px 20px;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.header p {
+    margin: 0;
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+.main-content {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* 🔴 ZONA BAHAYA - Deadline Mendesak (MERAH) */
+.danger-zone {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    padding: 15px 20px;
+    border-bottom: 2px solid #e2e8f0;
+    border-top: 4px solid #dc2626;
+    border-left: 4px solid #dc2626;
+    border-right: 4px solid #dc2626;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+    animation: dangerPulse 2s infinite;
+}
+
+@keyframes dangerPulse {
+    0% { box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2); }
+    50% { box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4); }
+    100% { box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2); }
+}
+
+.danger-zone.safe {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-color: #10b981;
+    animation: none;
+}
+
+.danger-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #dc2626;
+    margin: 0 0 10px 0;
+    text-shadow: 0 1px 2px rgba(220, 38, 38, 0.1);
+}
+
+.danger-zone.safe .danger-title {
+    color: #059669;
+}
+
+.urgent-task-card {
+    background: #ffffff;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border: 2px solid #dc2626;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+    transition: all 0.3s ease;
+}
+
+.urgent-task-card:hover {
+    background: #fef2f2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+}
+
+.urgent-task-card:last-child {
+    margin-bottom: 0;
+}
+
+.urgent-task-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #dc2626;
+    margin: 0;
+    flex: 1;
+}
+
+.urgent-task-deadline {
+    font-size: 0.9rem;
+    color: #991b1b;
+    font-weight: 600;
+    background: #fee2e2;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* 🟢 PESAN AMAN (HIJAU) */
+.safe-message {
+    text-align: center;
+    padding: 20px;
+    color: #059669;
+    font-weight: 600;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border: 2px solid #10b981;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+/* 🔵 JADWAL HARI INI (BIRU) */
+.today-schedule-section {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    padding: 15px 20px;
+    border-bottom: 2px solid #e2e8f0;
+    border-left: 4px solid #3b82f6;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+.schedule-item-today {
+    background: #ffffff;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border: 2px solid #3b82f6;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.1);
+    transition: all 0.3s ease;
+}
+
+.schedule-item-today:hover {
+    background: #f0f9ff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+/* 🟡 MATA PELAJARAN SEDANG BERLANGSUNG (KUNING) */
+.schedule-item-today.current {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 3px solid #f59e0b;
+    padding: 15px 18px;
+    margin: 8px 0;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+    animation: currentPulse 2s infinite;
+}
+
+.schedule-item-today.current .schedule-time {
+    color: #92400e;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+@keyframes currentPulse {
+    0% {
+        box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+        transform: scale(1);
+    }
+}
+
+/* 🟡 JADWAL AKAN DATANG (KUNING MUDA) */
+.schedule-item-today.upcoming {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin: 5px 0;
+    box-shadow: 0 3px 10px rgba(245, 158, 11, 0.15);
+}
+
+.schedule-item-today.upcoming .schedule-time {
+    color: #d97706;
+    font-weight: 600;
+}
+
+/* ⚪ JADWAL SELESAI (ABU-ABU) */
+.schedule-item-today.past {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin: 5px 0;
+    opacity: 0.7;
+    box-shadow: 0 1px 3px rgba(107, 114, 128, 0.1);
+}
+
+.schedule-item-today.past .schedule-time {
+    color: #6b7280;
+    text-decoration: line-through;
+}
+
+/* ⚪ TUGAS LAINNYA (ABU-ABU) */
+.other-tasks-section {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    padding: 15px 20px;
+    border-left: 4px solid #9ca3af;
+    box-shadow: 0 2px 8px rgba(156, 163, 175, 0.1);
+}
+
+.other-task-card {
+    background: #ffffff;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 6px rgba(156, 163, 175, 0.1);
+    transition: all 0.3s ease;
+}
+
+.other-task-card:hover {
+    background: #f9fafb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(156, 163, 175, 0.15);
+    border-color: #9ca3af;
+}
+
+.other-task-card.completed {
+    opacity: 0.6;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-color: #10b981;
+}
+
+.other-task-card.completed .urgent-task-name {
+    text-decoration: line-through;
+    color: #6b7280;
+}
+
+.other-task-deadline {
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 500;
+    background: #f3f4f6;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1f2937;
+    display: block;
+}
+
+/* 🔵 Judul Jadwal (BIRU) */
+.today-schedule-section .section-title {
+    color: #1e40af;
+    text-shadow: 0 1px 2px rgba(30, 64, 175, 0.1);
+}
+
+/* ⚪ Judul Tugas Lainnya (ABU-ABU) */
+.other-tasks-section .section-title {
+    color: #4b5563;
+    text-shadow: 0 1px 2px rgba(75, 85, 99, 0.1);
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    transition: all 0.3s ease;
+}
+
+.fab:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+}
+
+.fab:active {
+    background: #3730a3;
+    transform: translateY(0);
+}
+
+/* Header Content */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header-text {
+    flex: 1;
+}
+
+.settings-btn {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
+}
+
+.settings-btn:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 2px solid #e2e8f0;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+/* Form Styles */
+.task-form, .schedule-form {
+    display: grid;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.9rem;
+}
+
+.form-input {
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: #4f46e5;
+    color: white;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
+}
+
+.btn-primary:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+.btn-edit {
+    background: #f59e0b;
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+}
+
+.btn-edit:hover {
+    background: #d97706;
+}
+
+/* Settings Tabs */
+.settings-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 12px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s ease;
+    color: #6b7280;
+}
+
+.tab-btn.active {
+    background: #4f46e5;
+    color: white;
+}
+
+.tab-btn:hover:not(.active) {
+    background: #f3f4f6;
+    color: #4f46e5;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.day-selector {
+    margin-bottom: 25px;
+}
+
+.day-selector label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.schedule-item-settings {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.schedule-item-settings:hover {
+    border-color: #4f46e5;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+}
+
+.schedule-info {
+    flex: 1;
+}
+
+.schedule-subject {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+.schedule-time {
+    color: #4f46e5;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.schedule-teacher {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.schedule-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6b7280;
+}
+
+/* Mobile-First Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+        font-size: 14px;
+    }
+    
+    .container {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        min-height: 100vh;
+    }
+    
+    .header {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .header h1 {
+        font-size: 1.4rem;
+        margin: 0;
+    }
+    
+    .header p {
+        font-size: 0.9rem;
+        margin: 0;
+    }
+    
+    .settings-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+    
+    /* Mobile-optimized sections */
+    .danger-zone, .today-schedule-section, .other-tasks-section {
+        padding: 12px 15px;
+        margin: 0;
+    }
+    
+    .section-title {
+        font-size: 1rem;
+        margin-bottom: 12px;
+        text-align: center;
+        padding: 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Mobile task cards */
+    .urgent-task-card, .other-task-card {
+        padding: 15px 12px;
+        margin-bottom: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        border-radius: 12px;
+    }
+    
+    .urgent-task-name {
+        font-size: 1rem;
+        line-height: 1.3;
+        word-break: break-word;
+    }
+    
+    .urgent-task-deadline, .other-task-deadline {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+        border-radius: 6px;
+        align-self: flex-end;
+    }
+    
+    /* Mobile schedule items */
+    .schedule-item-today {
+        padding: 15px 12px;
+        margin-bottom: 10px;
+        border-radius: 12px;
+    }
+    
+    .schedule-time {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        word-break: break-word;
+    }
+    
+    /* Mobile FAB */
+    .fab {
+        bottom: 20px;
+        right: 15px;
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+        box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+    }
+    
+    /* Mobile modals */
+    .modal-overlay {
+        padding: 10px;
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+    
+    .modal-content {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        border-radius: 20px 20px 0 0;
+        max-height: 90vh;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        animation: slideUpMobile 0.3s ease;
+    }
+    
+    @keyframes slideUpMobile {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+    
+    .modal-header {
+        padding: 20px 20px 15px 20px;
+        border-radius: 20px 20px 0 0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    
+    .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+    
+    .modal-body {
+        padding: 20px;
+        padding-bottom: 40px;
+    }
+    
+    /* Mobile forms */
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+    
+    .form-input {
+        padding: 15px 12px;
+        font-size: 1rem;
+        border-radius: 10px;
+        border: 2px solid #e2e8f0;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    
+    .form-input:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .btn {
+        padding: 15px 20px;
+        font-size: 1rem;
+        border-radius: 12px;
+        min-height: 50px;
+        touch-action: manipulation;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        font-weight: 700;
+    }
+    
+    /* Mobile settings */
+    .settings-tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    
+    .tab-btn {
+        padding: 12px 8px;
+        font-size: 0.9rem;
+        text-align: center;
+        border-radius: 10px;
+    }
+    
+    .day-selector {
+        margin-bottom: 20px;
+    }
+    
+    .schedule-item-settings {
+        padding: 15px;
+        border-radius: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .schedule-info {
+        width: 100%;
+    }
+    
+    .schedule-subject {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+    
+    .schedule-time {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+    
+    .schedule-teacher {
+        font-size: 0.9rem;
+    }
+    
+    .schedule-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .btn-edit, .btn-danger {
+        flex: 1;
+        margin: 0 5px;
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    /* Mobile notification modal */
+    #notification-modal .modal-content {
+        position: fixed;
+        bottom: 0;
+        border-radius: 20px 20px 0 0;
+        animation: slideUpMobile 0.3s ease;
+    }
+    
+    #notification-modal .modal-body {
+        padding: 25px 20px 30px 20px;
+    }
+    
+    #notification-modal .btn {
+        margin: 5px 0;
+        width: 100%;
+    }
+    
+    #notification-modal div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    
+    /* Mobile empty states */
+    .empty-state {
+        padding: 30px 15px;
+        text-align: center;
+    }
+    
+    .empty-state p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* Mobile safe message */
+    .safe-message {
+        padding: 20px 15px;
+        font-size: 1rem;
+        border-radius: 12px;
+        line-height: 1.4;
+    }
+    
+    /* Touch improvements */
+    .urgent-task-card:hover,
+    .other-task-card:hover,
+    .schedule-item-today:hover,
+    .schedule-item-settings:hover {
+        transform: none;
+    }
+    
+    .urgent-task-card:active,
+    .other-task-card:active,
+    .schedule-item-today:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Improve text readability on mobile */
+    .danger-title {
+        font-size: 1rem;
+        text-align: center;
+        padding: 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9);
+        margin-bottom: 15px;
+    }
+    
+    .danger-zone.safe .danger-title {
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+    
+    .header {
+        padding: 10px 12px;
+    }
+    
+    .header h1 {
+        font-size: 1.2rem;
+    }
+    
+    .danger-zone, .today-schedule-section, .other-tasks-section {
+        padding: 10px 12px;
+    }
+    
+    .urgent-task-card, .other-task-card, .schedule-item-today {
+        padding: 12px 10px;
+    }
+    
+    .fab {
+        width: 55px;
+        height: 55px;
+        bottom: 15px;
+        right: 12px;
+        font-size: 1.6rem;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .form-input {
+        padding: 12px 10px;
+    }
+    
+    .btn {
+        padding: 12px 15px;
+        min-height: 45px;
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .modal-content {
+        position: relative;
+        max-height: 85vh;
+        border-radius: 15px;
+        margin: 20px auto;
+        width: 95%;
+        animation: none;
+    }
+    
+    .header {
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .settings-btn {
+        width: auto;
+        max-width: none;
+    }
+}
+
+/* Animation untuk slide in toast */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

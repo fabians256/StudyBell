@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyBell - Asisten Sekolah Pintar</title>
+    
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="_sdk/element_sdk.js"></script>
+    <script src="_sdk/data_sdk.js" type="text/javascript"></script>
+    
+    <style>@view-transition { navigation: auto; }</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1 id="app-title">StudyBell</h1>
+                    <p id="current-date">Loading...</p>
+                </div>
+                <button class="settings-btn" onclick="openSettingsModal()"> ⚙️ Pengaturan </button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="danger-zone" id="danger-zone">
+                <span class="danger-title" id="danger-title">🔴 [!] DEADLINE MENDESAK</span>
+                <div id="urgent-tasks">
+                    </div>
+            </div>
+
+            <div class="today-schedule-section">
+                <span class="section-title">🔵 JADWAL HARI INI</span>
+                <div id="today-schedule">
+                    </div>
+            </div>
+
+            <div class="other-tasks-section">
+                <span class="section-title">⚪ TUGAS LAINNYA</span>
+                <div id="other-tasks">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="fab" onclick="openAddTaskModal()" title="Tambah Tugas Baru"> + </button> 
+    
+    <div class="modal-overlay" id="add-task-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>➕ Tambah Tugas Baru</h2><button class="modal-close" onclick="closeAddTaskModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form class="task-form" id="task-form">
+                    <div class="form-group"><label for="task-name">Nama Tugas</label> <input type="text" id="task-name" class="form-input" placeholder="Contoh: PR Matematika Bab 5" required>
+                    </div>
+                    <div class="form-group"><label for="task-subject">Mata Pelajaran</label> <input type="text" id="task-subject" class="form-input" placeholder="Contoh: Matematika" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label for="task-deadline">Tanggal Deadline</label> <input type="date" id="task-deadline" class="form-input" required>
+                        </div>
+                        <div class="form-group"><label for="task-deadline-time">Jam Deadline</label> <input type="time" id="task-deadline-time" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-group"><label> <input type="checkbox" id="task-alarm" checked> Aktifkan alarm pengingat (20 &amp; 10 menit sebelum deadline) </label>
+                    </div><button type="submit" class="btn btn-primary"> ➕ Tambah Tugas </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚙️ Pengaturan School-Pal</h2><button class="modal-close" onclick="closeSettingsModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-tabs"><button class="tab-btn active" onclick="switchTab('manage-schedule')">📅 Kelola Jadwal</button> <button class="tab-btn" onclick="switchTab('add-schedule')">➕ Tambah Jadwal</button>
+                </div>
+                <div class="tab-content active" id="manage-schedule-tab">
+                    <div class="day-selector"><label for="day-select">Pilih Hari:</label> <select id="day-select" class="form-input" onchange="loadDaySchedule()"> <option value="senin">Senin</option> <option value="selasa">Selasa</option> <option value="rabu">Rabu</option> <option value="kamis">Kamis</option> <option value="jumat">Jumat</option> <option value="sabtu">Sabtu</option> <option value="minggu">Minggu</option> </select>
+                    </div>
+                    <div class="schedule-list" id="settings-schedule-list"></div>
+                </div>
+                <div class="tab-content" id="add-schedule-tab">
+                    <form class="schedule-form" id="schedule-form">
+                        <div class="form-group"><label for="schedule-day">Hari</label> <select id="schedule-day" class="form-input" required> <option value="">Pilih Hari</option> <option value="senin">Senin</option> <option value="selasa">Selasa</option> <option value="rabu">Rabu</option> <option value="kamis">Kamis</option> <option value="jumat">Jumat</option> <option value="sabtu">Sabtu</option> <option value="minggu">Minggu</option> </select>
+                        </div>
+                        <div class="form-group"><label for="schedule-subject">Mata Pelajaran</label> <input type="text" id="schedule-subject" class="form-input" placeholder="Contoh: Matematika" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="schedule-start">Jam Mulai</label> <input type="time" id="schedule-start" class="form-input" required>
+                            </div>
+                            <div class="form-group"><label for="schedule-end">Jam Selesai</label> <input type="time" id="schedule-end" class="form-input" required>
+                            </div>
+                        </div>
+                        <div class="form-group"><label for="schedule-teacher">Nama Guru</label> <input type="text" id="schedule-teacher" class="form-input" placeholder="Contoh: Bu Sari" required>
+                        </div>
+                        <div class="form-group"><label> <input type="checkbox" id="schedule-alarm" checked> Aktifkan alarm pengingat (20 menit sebelum) </label>
+                        </div><button type="submit" class="btn btn-primary"> ➕ Tambah Jadwal </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="notification-modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                <h2 id="notification-title">🔔 Pengingat Alarm</h2><button class="modal-close" onclick="dismissNotification()">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="notification-content" style="text-align: center; margin-bottom: 25px;"></div>
+                <div style="display: flex; gap: 15px; justify-content: center;"><button class="btn btn-primary" onclick="markAsCompleted()" id="complete-btn"> ✅ Sudah Dikerjakan </button> <button class="btn" onclick="snoozeNotification()" style="background: #6b7280; color: white;"> ⏰ Ingatkan Lagi (5 menit) </button> <button class="btn" onclick="dismissNotification()" style="background: #ef4444; color: white;"> ❌ Tutup </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
