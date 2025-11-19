@@ -10,12 +10,12 @@
 📚 Tugas lainya: Bagian terpisah untuk tugas dan jadwal dengan jadwal deadline yang masih cukup jauh, Memungkingkan perencanaan yang lebih baik.
 
 🛠️ Struktur kode aplikasi ini dikembangkan mengunakan standar web dasar: 
-- Index.html: Stuktur utama aplikasi.
-- Style.CSS: Desain visual dan styling aplikasi
-- Script.JS: Logika dan fungsionalitas aplikasi
+# Index.html: Stuktur utama aplikasi.
+# Style.CSS: Desain visual dan styling aplikasi
+# Script.JS: Logika dan fungsionalitas aplikasi
 
 🚀 Panduan Penggunnaan:
-- Mengatur jadwal pelajaran (Schedule)
+# Mengatur jadwal pelajaran (Schedule)
 
 📲 Buka Aplikasi: Mulai StudyBell
 ⚙️ Akses pengaturan: Tekan menu pengaturan di pojok kanan atas.
@@ -23,7 +23,7 @@
 🔔 Aktivkan Alarm: Centang bagian 'Aktivkan alarm pengingat (20 menit sebelum)'.
 ✅ Simpan: Klik tambah jadwal
 
-- Memasukan tugas/PR ( Homework/Assignment).
+# Memasukan tugas/PR ( Homework/Assignment).
 
 👆 Tombol tambah: Klik ikon (+) dibagian pojok kanan bawah 
 ✍️ Isi detail tugas: Masukan informasi tugas: contoh input: ( Nama tugas = Merangkum halaman 109, Mapel = Matematika, Tanggal deadline = 20/11/2025, Jam deadline = 07:20).
