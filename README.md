@@ -1,33 +1,31 @@
-🔔 StudyBell: Pengingat Cerdas untuk Pelajar 
+🔔 StudyBell: Pengingat Cerdas Untuk Pelajar
 
-📱 Tentang Aplikasi StudyBell adalah aplikasi pengingat pintar yang dirancang khusus untuk membantu siswa mengelola jadwal pelajaran dan tugas/PR mereka secara efektif, memastikan Anda tidak pernah terlewat satu kelas atau deadline pun.
+📱 Tentang aplikasi StudyBell adalah aplikasi pengingat pintar yang dirancang khusus untuk membantu siswa mengelola jadwal pelajaran dan tugas/PR mereka secara efektif, memastikan anda tidak pernah terlewat satu kelas atau deadline pun.
 
-✨ Fitur Utama Aplikasi StudyBell dilengkapi dengan fitur-fitur penting untuk memaksimalkan produktivitas belajar Anda:
+✨ Fitur utama aplikasi StudyBell dilengkapi dengan fitur-fitur penting untuk memaksimalkan produktivitas belajar anda: 
 
-🚨 Alarm Pengingat: Fitur utama yang berfungsi sebagai alarm notifikasi untuk jadwal pelajaran atau tugas.
-⏳ Deadline Mendesak: Tampilan khusus untuk tugas-tugas dengan batas waktu yang sangat dekat. 
-🗓️ Jadwal Pelajaran Hari Ini: Menampilkan ringkasan mata pelajaran yang harus dihadiri pada hari berjalan. 
-📚 Tugas Lainnya: Bagian terpisah untuk tugas dengan jadwal deadline yang masih cukup jauh, memungkinkan                   perencanaan yang lebih baik.
+🚨 Alarm pengingat: Fitur utama yang berfungsi sebagaai alarm notifikasi untuk jadwal pelajaran atau tugas
+⏳ Deadline mendesak: Tampilan khusus untuk tugas-tugas dengan dengan batas waktu yang sangat dekat
+🗓️ Jadwal pelajaran hari ini: Menampilkan ringkasan mata pelajaran yang harus dihadiri pada hari yang sudah ditentukan
+📚 Tugas lainya: Bagian terpisah untuk tugas dan jadwal dengan jadwal deadline yang masih cukup jauh, Memungkingkan perencanaan yang lebih baik.
 
-🛠️ Struktur Kode Aplikasi ini dikembangkan menggunakan standar web dasar:
+🛠️ Struktur kode aplikasi ini dikembangkan mengunakan standar web dasar: 
+# Index.html: Stuktur utama aplikasi.
+# Style.CSS: Desain visual dan styling aplikasi
+# Script.JS: Logika dan fungsionalitas aplikasi
 
-index.html: Struktur utama aplikasi.
-style.css: Desain visual dan styling aplikasi.
-script.js: Logika dan fungsionalitas aplikasi.
+🚀 Panduan Penggunnaan:
+# Mengatur jadwal pelajaran (Schedule)
 
-🚀 Panduan Penggunaan
+📲 Buka Aplikasi: Mulai StudyBell
+⚙️ Akses pengaturan: Tekan menu pengaturan di pojok kanan atas.
+➕ Tambah Jadwal: Klik menu tambah jadwal dan isi detai: Contoh input: ( Hari = Senin, Mapel = Matematika, Jam Mulai = 07:20, Jam Selesai = 09:40, Nama Guru = Bu Sri
+🔔 Aktivkan Alarm: Centang bagian 'Aktivkan alarm pengingat (20 menit sebelum)'.
+✅ Simpan: Klik tambah jadwal
 
-# Mengatur Jadwal Pelajaran (Schedule) 
+# Memasukan tugas/PR ( Homework/Assignment).
 
-📲 Buka Aplikasi: Mulai StudyBell. 
-⚙️ Akses Pengaturan: Tekan menu pengaturan di Pojok Kanan Atas. 
-➕ Tambah Jadwal: Klik menu Tambah Jadwal dan isi detail: Contoh Input: (Hari = Senin, Mapel = Matematika, Jam   Mulai = 07:20, Jam Selesai = 09:40, Nama Guru = Bu Sri). 
-🔔 Aktifkan Alarm: Centang bagian 'Aktifkan alarm pengingat (20 menit sebelum)'. 
-✅ Simpan: Klik Tambahkan Jadwal.
-
-# Memasukkan Tugas/PR (Homework/Assignment) 
-
-👆 Tombol Tambah: Klik ikon (+) di bagian Pojok Kanan Bawah. 
-✍️ Isi Detail Tugas: Masukkan informasi tugas: Contoh Input: (Nama Tugas = Merangkum halaman 109, Mapel = MTK,  Tanggal Deadline = 20/11/2025, Jam Deadline = 07:20). 
-⏰ Atur Alarm Tugas: Centang bagian 'Aktifkan alarm pengingat (20 & 10 menit sebelum deadline)'. 
-💾 Simpan: Klik Tambahkan Jadwal.
+👆 Tombol tambah: Klik ikon (+) dibagian pojok kanan bawah 
+✍️ Isi detail tugas: Masukan informasi tugas: contoh input: ( Nama tugas = Merangkum halaman 109, Mapel = Matematika, Tanggal deadline = 20/11/2025, Jam deadline = 07:20).
+⏰ Atur alarm tugas: Centang bagian 'Aktivkan alarm pengingat ( 20 & 10 menit sebelum deadline )
+💾 Simpan: Klik jadwal.
